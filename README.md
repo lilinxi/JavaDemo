@@ -1,1 +1,1 @@
-# JavaDemo
+# JavaGameServer
