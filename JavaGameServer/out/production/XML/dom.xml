@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RootElement>
+    <val1>100000000000000</val1>
+    <val2>1.0000001</val2>
+    <val3>
+        <SubElement>
+            <subval1>1000</subval1>
+            <subval2>aaaaaaaa</subval2>
+        </SubElement>
+    </val3>
+</RootElement>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AIO/AIO.iml" filepath="$PROJECT_DIR$/AIO/AIO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BIO/BIO.iml" filepath="$PROJECT_DIR$/BIO/BIO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Base64/Base64.iml" filepath="$PROJECT_DIR$/Base64/Base64.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Enum/Enum.iml" filepath="$PROJECT_DIR$/Enum/Enum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Format/Format.iml" filepath="$PROJECT_DIR$/Format/Format.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HTTP/HTTP.iml" filepath="$PROJECT_DIR$/HTTP/HTTP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/I18N/I18N.iml" filepath="$PROJECT_DIR$/I18N/I18N.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSON/JSON.iml" filepath="$PROJECT_DIR$/JSON/JSON.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JsonRPC/JsonRPC.iml" filepath="$PROJECT_DIR$/JsonRPC/JsonRPC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Memcache/Memcache.iml" filepath="$PROJECT_DIR$/Memcache/Memcache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mina/Mina.iml" filepath="$PROJECT_DIR$/Mina/Mina.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MongoDB/MongoDB.iml" filepath="$PROJECT_DIR$/MongoDB/MongoDB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MySQL/MySQL.iml" filepath="$PROJECT_DIR$/MySQL/MySQL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NIO/NIO.iml" filepath="$PROJECT_DIR$/NIO/NIO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Netty/Netty.iml" filepath="$PROJECT_DIR$/Netty/Netty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Optional/Optional.iml" filepath="$PROJECT_DIR$/Optional/Optional.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ParallelArrays/ParallelArrays.iml" filepath="$PROJECT_DIR$/ParallelArrays/ParallelArrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Quartz/Quartz.iml" filepath="$PROJECT_DIR$/Quartz/Quartz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redis/Redis.iml" filepath="$PROJECT_DIR$/Redis/Redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Socket/Socket.iml" filepath="$PROJECT_DIR$/Socket/Socket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StreamAPI/StreamAPI.iml" filepath="$PROJECT_DIR$/StreamAPI/StreamAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebSocket/WebSocket.iml" filepath="$PROJECT_DIR$/WebSocket/WebSocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XML/XML.iml" filepath="$PROJECT_DIR$/XML/XML.iml" />
+    </modules>
+  </component>
+</project>

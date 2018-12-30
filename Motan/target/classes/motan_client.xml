@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:motan="http://api.weibo.com/schema/motan"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+   http://api.weibo.com/schema/motan http://api.weibo.com/schema/motan.xsd">
+    <!-- reference to the remote service -->
+    <motan:referer id="remoteService" interface="server.FooService"
+                   directUrl="localhost:8002"/>
+
+    <!--集群配置：registry 定义-->
+    <!--consul-->
+    <!--<motan:registry regProtocol="consul" name="my_consul"-->
+    <!--address="127.0.0.1:8500"></motan:registry>-->
+    <!--consul client-->
+    <!--<motan:referer id="remoteService"-->
+    <!--interface="server.FooService"-->
+    <!--registry="my_consul"></motan:referer>-->
+    <!--zookeeper 单节点-->
+    <!--<motan:registry regProtocol="zookeeper" name="my_zookeeper"-->
+    <!--address="127.0.0.1:2181"></motan:registry>-->
+    <!--zookeeper 多节点集群-->
+    <!--<motan:registry regProtocol="zookeeper" name="my_zookeeper"-->
+    <!--address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"></motan:registry>-->
+    <!--zookeeper client-->
+    <!--<motan:referer id="remoteService"-->
+    <!--interface="server.FooService"-->
+    <!--registry="my_zookeeper"></motan:referer>-->
+</beans>

@@ -1,0 +1,227 @@
+# 数字格式化
+
+```
+import java.text.NumberFormat;
+import java.util.Locale;
+
+public class NumberFormatDemo {
+
+    public static void main(String[] args) {
+        double value = 987654.321;
+        Locale cnLocale = new Locale("zh", "CN");
+        Locale usLocale = new Locale("en", "US");
+        Locale deLocale = new Locale("de", "DE");
+        NumberFormat dNf = NumberFormat.getNumberInstance();
+//        百分数
+        NumberFormat pNf = NumberFormat.getPercentInstance();
+        NumberFormat cnNf = NumberFormat.getNumberInstance(cnLocale);
+        NumberFormat usNf = NumberFormat.getNumberInstance(usLocale);
+        NumberFormat deNf = NumberFormat.getNumberInstance(deLocale);
+        System.out.println("Default Percent Format:" + pNf.format(value));
+        System.out.println("Default Number Format:" + dNf.format(value));
+        System.out.println("China Number Format:" + cnNf.format(value));
+        System.out.println("United Number Format:" + usNf.format(value));
+//		德国使用逗号代表小数点，小数点分割长数字
+        System.out.println("German Number Format:" + deNf.format(value));
+        try {
+            System.out.println(deNf.parse("3.14").doubleValue());
+            System.out.println(dNf.parse("3.14F").doubleValue());
+            System.out.println(dNf.parse("F3.14").doubleValue());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+}
+
+```
+
+# 货币格式化
+
+```
+import java.text.NumberFormat;
+import java.util.Locale;
+
+public class CurrencyFormatDemo {
+
+    public static void main(String[] args) {
+        double value = 987654.321;
+        Locale cnLocale = new Locale("zh", "CN");
+        Locale usLocale = new Locale("en", "US");
+        Locale deLocale = new Locale("de", "DE");
+
+        NumberFormat cnNf = NumberFormat.getCurrencyInstance(cnLocale);
+        NumberFormat usNf = NumberFormat.getCurrencyInstance(usLocale);
+        NumberFormat deNf = NumberFormat.getCurrencyInstance(deLocale);
+        System.out.println("China Currency Format:" + cnNf.format(value));
+        System.out.println("United Currency Format:" + usNf.format(value));
+        System.out.println("German Currency Format:" + deNf.format(value));
+    }
+
+}
+
+```
+
+# 日期格式化
+
+- DateFormat
+
+```
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class DateFormatDemo {
+
+	public static void print(Date date, Locale locale) {
+		DateFormat df1 = DateFormat.getDateTimeInstance(DateFormat.FULL,
+				DateFormat.FULL, locale);
+		DateFormat df2 = DateFormat.getDateTimeInstance(DateFormat.LONG,
+				DateFormat.LONG, locale);
+		DateFormat df3 = DateFormat.getDateTimeInstance(DateFormat.DEFAULT,
+				DateFormat.DEFAULT, locale);
+		DateFormat df4 = DateFormat.getDateTimeInstance(DateFormat.SHORT,
+				DateFormat.SHORT, locale);
+		System.out.println(df1.format(date));
+		System.out.println(df2.format(date));
+		System.out.println(df3.format(date));
+		System.out.println(df4.format(date));
+	}
+
+	public static void main(String[] args) {
+		Date now = new Date();
+		Locale cnLocale = new Locale("zh", "CN");
+		Locale usLocale = new Locale("en", "US");
+		System.out.println("中文格式");
+		print(now, cnLocale);
+		System.out.println("英文格式");
+		print(now, usLocale);
+	}
+
+}
+
+```
+
+- SimpleDateFormat
+
+```
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class SimpleDateFormatDemo {
+
+	public static void main(String[] args) {
+		Date now = new Date();
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(sdf1.format(now));
+		SimpleDateFormat sdf2 = 
+		new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+		System.out.println(sdf2.format(now));
+		SimpleDateFormat sdf3 = 
+		new SimpleDateFormat("现在是 yyyy年 MM 月 dd 日，是今年的第 D 天");
+		System.out.println(sdf3.format(now));
+	}
+
+}
+
+```
+
+- DataTimeFormatter
+
+```
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
+public class DateTimeFormatterDemo {
+
+    public static void formateMethod() {
+        DateTimeFormatter[] formatters = new DateTimeFormatter[]{
+//                常量创建
+                DateTimeFormatter.ISO_LOCAL_DATE,
+                DateTimeFormatter.ISO_LOCAL_TIME,
+                DateTimeFormatter.ISO_LOCAL_DATE_TIME,
+//                本地化创建
+                DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL,
+                        FormatStyle.MEDIUM),
+                DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM),
+//                模式字符串创建
+//				三个 MMM 为12月，两个 MM 为12
+                DateTimeFormatter.ofPattern("Gyyyy MMM dd HH:mm:ss")};
+        LocalDateTime date = LocalDateTime.now();
+        for (int i = 0; i < formatters.length; i++) {
+            System.out.println(date.format(formatters[i]));
+            System.out.println(formatters[i].format(date));
+        }
+    }
+
+    public static void parseMethod() {
+        String str = "2018==12==02 01时06分09秒";
+        DateTimeFormatter fomatter = DateTimeFormatter
+                .ofPattern("yyyy==MM==dd HH时mm分ss秒");
+        LocalDateTime dt = LocalDateTime.parse(str, fomatter);
+        System.out.println(dt);
+    }
+
+    public static void main(String[] args) {
+        formateMethod();
+        System.out.println("-----------------");
+		parseMethod();
+    }
+
+}
+
+```
+
+# 消息格式化
+
+```
+import java.text.MessageFormat;
+import java.util.Date;
+import java.util.Locale;
+
+
+/**
+ * MessageFormat 的 Pattern：{n,[,formatType][,formatStyle]}
+ *
+ * Type:    Style
+ *      number  integer,currency,percent,#.##
+ *      date    full,long,medium,short
+ *      time    full,long,medium,short
+ */
+public class MessageFormatDemo {
+
+    /**
+     * 定义消息格式化方法：msgFormat()
+     *
+     * @param pattern   模式字符串
+     * @param locale    语言环境
+     * @param msgParams 占位符参数
+     */
+    public static void msgFormat(String pattern, Locale locale,
+                                 Object[] msgParams) {
+        MessageFormat formatter = new MessageFormat(pattern);
+        formatter.setLocale(locale);
+        System.out.println(formatter.format(msgParams));
+    }
+
+    public static void main(String[] args) {
+        String pattern1 = "{0}，你好！你在{1}访问本系统！";
+        Locale locale1 = Locale.getDefault();
+        System.out.println(locale1.getCountry());
+        Object[] msgParams1 = {"用户名", new Date()};
+        msgFormat(pattern1, locale1, msgParams1);
+        String pattern2 = "{0}，你好！你在{1,date,long}访问本系统！";
+        msgFormat(pattern2, locale1, msgParams1);
+        System.out.println("--------------------------------------");
+        Locale locale2 = new Locale("en", "US");
+        System.out.println(locale2.getCountry());
+        Object[] msgParams2 = {"Username", new Date()};
+        msgFormat(pattern1, locale2, msgParams2);
+        msgFormat(pattern2, locale2, msgParams2);
+    }
+
+}
+
+```
+
